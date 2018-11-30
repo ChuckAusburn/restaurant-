@@ -51,17 +51,17 @@
       
                     <div class="form-group">
                       <label for="number">Phone Number</label>
-                      <input type="text" class="form-control" id="role">
+                      <input type="text" class="form-control" id="number">
                     </div>
       
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="text" class="form-control" id="age">
+                      <input type="text" class="form-control" id="email">
                     </div>
       
                     <div class="form-group">
                       <label for="unique">Unique ID</label>
-                      <input type="text" class="form-control" id="force-points">
+                      <input type="text" class="form-control" id="uniqueID">
                     </div>
       
                   </form>
@@ -87,17 +87,17 @@
       event.preventDefault();
 
       var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
+        customerName: $("#name").val().trim(),
+        customerEmail: $("#email").val().trim(),
+        customerID: $("#uniqueID").val().trim(),
+        phoneNumber: $("#number").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
+      $.post("/api/tableData", newCharacter)
         .then(function(data) {
           console.log(data);
-          alert("Adding character...");
+          alert("Adding Table...");
         });
 
     });
