@@ -92,7 +92,7 @@
         customerID: $("#uniqueID").val().trim(),
         phoneNumber: $("#number").val().trim()
       };
-
+      console.log(newCustomer);
       // Question: What does this code do??
       $.post("/api/tableData", newCustomer)
         .then(function(data) {
@@ -101,6 +101,8 @@
         });
 
     });
+
+  
 
   </script>
 </body>

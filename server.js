@@ -6,9 +6,34 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
-// Add the application routes
-require(path.join(__dirname, 'routes/apiRoutes.js'))(app);
-require(path.join(__dirname, 'routes/htmlRoutes.js'))(app);
+
+app.get("/api/reserve", function (req, res) {
+    return res.json(tables);
+});
+
+app.get("/api/tableData", function (req, res) {
+    var chosen = req.params.tableDat;
+});
+
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "public/home.html"));
+});
+
+app.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "public/tables.html"));
+});
+
+app.get("/reserve", function (req, res) {
+    res.sendFile(path.join(__dirname, "public/reserve.html"));
+});
+
+app.get("/api/tables", function (req, res) {
+    var tables = req.params.newCustomer;
+
+    console.log(tables);
+    return res.json(false);
+});
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
