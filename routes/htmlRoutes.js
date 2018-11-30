@@ -2,12 +2,15 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
 
+app.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+
 app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-// Displays a single character, or returns false
-app.get("/api/characters/tables", function (req, res) {
+app.get("/api/tables", function (req, res) {
     var chosen = req.params.tables;
 
     console.log(chosen);
